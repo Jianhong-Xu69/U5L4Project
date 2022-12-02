@@ -3,7 +3,7 @@ public class Dragon {
     private int health;
     private int strength;
     private int level;
-    private boolean isDead;
+    private boolean dead;
     private int exp;
 
     public Dragon () {
@@ -14,12 +14,13 @@ public class Dragon {
     }
 
     public void takeDamage(int damage) {
-        if (!isDead) {
+        if (!dead) {
             health -= damage;
             if (health <= 0){
                 health = 0;
                 System.out.println("The dragon takes " + damage + " damage and now has " + health + " health");
                 System.out.println("FAA!");
+                dead = true;
             } else {
                 System.out.println("The dragon takes " + damage + " damage and now has " + health + " health");
             }
@@ -47,5 +48,24 @@ public class Dragon {
             strength *= 2;
             System.out.println("The Dragon's strength has increased to " + strength + "!");
         }
+    }
+    public int getStrength() {
+        return strength;
+    }
+    public int getHealth() {
+        return health;
+    }
+    public int getLevel() {
+        return level;
+    }
+    public int getExp() {
+        return exp;
+    }
+    public boolean isDead() {
+        return dead;
+    }
+
+    public String toString() {
+        return "Dragon:\n" + "Health = " + health + "\nStrength = " + strength + "\nLevel = " + level + "\nDead = " + dead + "\nExp = " + exp;
     }
 }
